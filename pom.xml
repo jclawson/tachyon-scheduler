@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jasonclawson</groupId>
-	<artifactId>tachyon-scheduler</artifactId>
+	<artifactId>tachyon-scheduler-parent</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<name>Tachyon Enterprise Scheduler</name>
 	<description>Tachyon Enterprise Scheduler</description>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<url>https://github.com/jclawson/tachyon-scheduler/</url>
 
 	<properties>
@@ -70,9 +70,8 @@
 		</repository>
 	</repositories>
 
-
+<dependencyManagement>
 	<dependencies>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -104,9 +103,19 @@
 			<groupId>com.yammer.metrics</groupId>
 			<artifactId>metrics-core</artifactId>
 			<version>2.2.0</version>
-			<!-- TODO: make this optional one day <optional>true</optional> -->
+		</dependency>
+		
+		<dependency>
+		  <groupId>joda-time</groupId>
+		  <artifactId>joda-time</artifactId>
+		  <version>2.2</version>
 		</dependency>
 	</dependencies>
+</dependencyManagement>
+
+<modules>
+	<module>tachyon-scheduler</module>
+</modules>
 
 	<build>
 		<plugins>
