@@ -3,6 +3,9 @@ Tachyon Enterprise Job Scheduler (in project planning phase...)
 
 Enterprise Job Scheduler
 
+TODO
+------
+* add support for H2 store and JDBC store
 
 Architecture Questions
 ----------------------------

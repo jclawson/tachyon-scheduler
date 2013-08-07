@@ -10,7 +10,7 @@
 	<url>https://github.com/jclawson/tachyon-scheduler/</url>
 
 	<properties>
-		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
 
