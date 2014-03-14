@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.UUID;
 
 import org.joda.time.LocalDateTime;
 
@@ -18,18 +17,10 @@ import com.jasonclawson.tachyon.model.Trigger;
 public class InMemoryStore extends AbstractStore {
 
 	private HashMap<String, Trigger> nameToTrigger = new HashMap<>();
-	private HashMap<UUID, Trigger> uuidToTrigger = new HashMap<>();
 	private HashMultimap<String, Trigger> tagToTriggers = HashMultimap.create();
 	
 	private HashMap<String, Job> nameToJob = new HashMap<>();
-	private HashMap<UUID, Job> uuidToJob = new HashMap<>();
 	private HashMultimap<String, Job> tagToJobs = HashMultimap.create();
-	
-	
-	@Override
-	public Trigger getTrigger(UUID id) {
-		return uuidToTrigger.get(id);
-	}
 
 	@Override
 	public Trigger getTrigger(String name) {
@@ -55,11 +46,6 @@ public class InMemoryStore extends AbstractStore {
 		}
 		
 		return triggers;
-	}
-
-	@Override
-	public Job getJob(UUID id) {
-		return uuidToJob.get(id);
 	}
 
 	@Override
@@ -100,7 +86,6 @@ public class InMemoryStore extends AbstractStore {
 	@Override
 	public synchronized void addJob(Job job) {
 		nameToJob.put(job.getName(), job);
-		uuidToJob.put(job.getId(), job);
 		for(String tag : job.getTags()) {
 			tagToJobs.put(tag, job);
 		}
@@ -109,7 +94,6 @@ public class InMemoryStore extends AbstractStore {
 	@Override
 	public synchronized void addTrigger(Trigger trigger) {
 		nameToTrigger.put(trigger.getName(), trigger);
-		uuidToTrigger.put(trigger.getId(), trigger);
 		for(String tag : trigger.getTags()) {
 			tagToTriggers.put(tag, trigger);
 		}

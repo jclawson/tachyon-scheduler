@@ -12,8 +12,6 @@ import org.joda.time.LocalDateTime;
 
 @Data
 public abstract class Trigger {
-    private UUID id;
-    
     /**
      * This value must be unique amongst all triggers
      */

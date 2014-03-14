@@ -1,14 +1,11 @@
 package com.jasonclawson.tachyon.model;
 
 import java.util.Set;
-import java.util.UUID;
 
 import lombok.Data;
 
 @Data
 public class Job {
-    private UUID id;
-    
     /**
      * This key must be unique amongst all jobs...
      * .... no I don't want this to be unique unless we configure a job to be unique

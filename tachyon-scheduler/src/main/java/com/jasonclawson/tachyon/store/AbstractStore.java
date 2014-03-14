@@ -9,11 +9,9 @@ import com.jasonclawson.tachyon.model.Job;
 import com.jasonclawson.tachyon.model.Trigger;
 
 public abstract class AbstractStore {
-    public abstract Trigger getTrigger(UUID id);
     public abstract Trigger getTrigger(String name);
     public abstract Collection<Trigger> getTriggers(String ... tags);
     
-    public abstract Job getJob(UUID id);
     public abstract Job getJob(String name);
     public abstract Collection<Job> getJobs(String ... tags);
     
